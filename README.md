@@ -3,7 +3,7 @@ El proyecto cumple con los siguientes requisitos:
 
 - [x] Operaciones CRUD para Estudiantes, Cursos y Matrículas.
 - [x] Carga asíncrona de objetos anidados (al no haber soporte para DBRef).
-- [ ] Listado de Estudiantes ordenados en forma descendente por edad.
+- [x] Listado de Estudiantes ordenados en forma descendente por edad.
 - [x] Operativo con MongoDB 4.2.
 - [x] Implementado mediante Controladores REST y Endpoints Funcionales.
 - [x] Validación de objetos ingresados.

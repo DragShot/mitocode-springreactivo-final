@@ -29,6 +29,12 @@ public class EstudianteHandler implements ICrudHandler {
 				.body(service.listar(), Estudiante.class);
 	}
 	
+	public Mono<ServerResponse> listarOrdenado(ServerRequest req) {
+		return ServerResponse.ok()
+				.contentType(MediaType.APPLICATION_JSON)
+				.body(service.listarOrdenado(), Estudiante.class);
+	}
+	
 	public Mono<ServerResponse> listarPorId(ServerRequest req) {
 		return service.listarPorId(req.pathVariable("id"))
 				.flatMap(obj -> ServerResponse.ok()

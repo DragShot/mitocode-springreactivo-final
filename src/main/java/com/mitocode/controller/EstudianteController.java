@@ -38,6 +38,13 @@ public class EstudianteController {
 				.contentType(MediaType.APPLICATION_JSON).body(fx));
 	}
 	
+	@GetMapping("/ordenado")
+	public Mono<ResponseEntity<Flux<Estudiante>>> listarOrdenado() {
+		Flux<Estudiante> fx = service.listarOrdenado();
+		return Mono.just(ResponseEntity.ok()
+				.contentType(MediaType.APPLICATION_JSON).body(fx));
+	}
+	
 	@GetMapping("/{id}")
 	public Mono<ResponseEntity<Estudiante>> listarPorId(@PathVariable("id") String id) {
 		return service.listarPorId(id)

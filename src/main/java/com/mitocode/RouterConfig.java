@@ -23,7 +23,14 @@ public class RouterConfig {
 	
 	@Bean
 	public RouterFunction<ServerResponse> rutasEstudiante(EstudianteHandler handler) {
-		return rutasCRUD("/func/estudiantes", handler);
+		return RouterFunctions.route(RequestPredicates.GET("/func/estudiantes"), handler::listar)
+				//Ni idea de por qué es necesario poner la ruta adicional en este punto,
+				//pero de lo contrario no quiere funcionar.
+				.andRoute(RequestPredicates.GET("/func/estudiantes/ordenado"), handler::listarOrdenado)
+				.andRoute(RequestPredicates.GET("/func/estudiantes" + "/{id}"), handler::listarPorId)
+				.andRoute(RequestPredicates.POST("/func/estudiantes"), handler::registrar)
+				.andRoute(RequestPredicates.PUT("/func/estudiantes"), handler::modificar)
+				.andRoute(RequestPredicates.DELETE("/func/estudiantes" + "/{id}"), handler::eliminar);
 	}
 	
 	@Bean

@@ -2,6 +2,8 @@ package com.mitocode.service;
 
 import com.mitocode.document.Estudiante;
 
-public interface IEstudianteService extends ICRUD<Estudiante, String> {
+import reactor.core.publisher.Flux;
 
+public interface IEstudianteService extends ICRUD<Estudiante, String> {
+	public Flux<Estudiante> listarOrdenado();
 }
